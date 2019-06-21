@@ -16,6 +16,6 @@ while ! [ -d 'ABIcons.xcodeproj' ]; do
 done
 
 xcodebuild -project ABIcons.xcodeproj -scheme ABIcons -configuration Release -derivedDataPath build build
-cp "build/Build/Products/Release/ABIcons" "ABIcons"
+cp "build/Build/Products/Release/ABIcons" "Binary/ABIcons"
 
 popd > /dev/null

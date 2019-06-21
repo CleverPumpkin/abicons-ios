@@ -21,6 +21,7 @@ ABIcons will generate `png-orig` (e.g. icon_20pt.png-orig) icon files. Store the
 ## Credits
 
 ABIcons is owned and maintained by the [CleverPumpkin, Ltd](https://cleverpumpkin.ru/)
+
 CleverPumpkin, company@cleverpumpkin.ru
 
 ## License

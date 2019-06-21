@@ -14,10 +14,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = 10.3
   s.preserve_path         = 'Binary/ABIcons'
   s.user_target_xcconfig  = { 'ABICONS_PATH' => "${PODS_ROOT}/#{s.name}/Binary/ABIcons" }
-  s.script_phase          = {
-    :name => 'ABIcons Step',
-    :script => '${PODS_TARGET_SRCROOT}/Scripts/run.sh',
-    :execution_position => :before_compile
-  }
 
 end

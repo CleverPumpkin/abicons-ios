@@ -11,6 +11,7 @@ Add new build phase to your main target of your project before compile sources. 
 The ABIcons binary will be available via `${ABICONS_PATH}`. Provide Info.plist file path via `-infoPlistPath` and app icon path via `-appIconsPath` parameters to ABIcons binary. Also use `-overrideShowVersion 1` to draw badge on icon (and 0 otherwise).
 
 Example script:
+
 ```"${ABICONS_PATH}" -infoPlistPath "${SRCROOT}/${TARGET_NAME}/Info.plist" -appIconsPath "${SRCROOT}/${TARGET_NAME}/Resources/Assets.xcassets/AppIcon.appiconset" -overrideShowVersion 1```
 
 Full list of options available via `-help` parameter.

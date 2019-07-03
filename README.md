@@ -12,7 +12,10 @@ The ABIcons binary will be available via `${ABICONS_PATH}`. Provide Info.plist f
 
 Example script:
 
-```"${ABICONS_PATH}" -infoPlistPath "${SRCROOT}/${TARGET_NAME}/Info.plist" -appIconsPath "${SRCROOT}/${TARGET_NAME}/Resources/Assets.xcassets/AppIcon.appiconset" -overrideShowVersion 1```
+```
+"${ABICONS_PATH}" -infoPlistPath "${INFOPLIST_FILE}" -appIconsPath
+"${SRCROOT}/${TARGET_NAME}/Resources/Assets.xcassets/AppIcon.appiconset" -overrideShowVersion 1
+```
 
 Full list of options available via `-help` parameter.
 

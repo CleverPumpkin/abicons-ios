@@ -59,6 +59,23 @@ public struct ABIcon {
 		}
 	}
 	
+	private func pixelsSize(for image: NSImage) -> CGSize {
+		let representations = image.representations
+		
+		var width: Int = 0
+		var height: Int = 0
+		for representation in representations {
+			if representation.pixelsWide > width {
+				width = representation.pixelsWide
+			}
+			if representation.pixelsHigh > height {
+				height = representation.pixelsHigh
+			}
+		}
+		
+		return CGSize(width: width, height: height)
+	}
+	
 	public func drawVersionNumber (_ version: String) throws {
 		try self.createOriginalFileIfNeeded ();
 		
@@ -66,7 +83,7 @@ public struct ABIcon {
 			throw IconError.imageError (self.origURL.lastPathComponent);
 		}
 		
-		let iconSize = origIcon.size;
+		let iconSize = pixelsSize(for: origIcon);
 		let ctx = CGContext (data: nil, width: Int (iconSize.width), height: Int (iconSize.height), bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB (), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!;
 		
 		ctx.draw (origIcon.cgImage (forProposedRect: nil, context: nil, hints: nil)!, in: CGRect (origin: .zero, size: iconSize));

@@ -6,6 +6,13 @@
 //  Copyright © 2017 Cleverpumpkin, Ltd. All rights reserved.
 //
 
+/*
+"${ABICONS_PATH}" \
+-infoPlistPath "${INFOPLIST_FILE}" \
+-appIconsPath "${SRCROOT}/Resources/Images.xcassets/${ASSETCATALOG_COMPILER_APPICON_NAME}.appiconset" \
+-overrideShowVersion "${CP_USE_ABICONS}"
+ */
+
 import Foundation
 
 fileprivate func printHelp () {

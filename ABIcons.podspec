@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'ABIcons'
-  s.version               = '0.1.1'
+  s.version               = '0.2.1'
   s.summary               = 'App to add application version to application icon'
   s.description           = <<-DESC
   Use this tool if you want to see version number on your icon. This could be useful for debug and test builds.

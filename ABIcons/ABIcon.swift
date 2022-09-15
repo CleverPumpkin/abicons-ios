@@ -96,12 +96,44 @@ public struct ABIcon {
 			NSAttributedString.Key.font: NSFont.systemFont (ofSize: iconSize.height / 6.0),
 		]);
 		
-		let versionSize = versionString.boundingRect (with: NSSize (width: iconSize.width * 0.9, height: iconSize.height * (0.8 - 1.0 / 12)), options: .usesLineFragmentOrigin);
-		ctx.setFillColor (ABOptions.Drawing.versionBackgroundColor.value.cgColor);
-		ctx.fill (CGRect (x: 0.0, y: (iconSize.height / 10).rounded (), width: iconSize.width, height: versionSize.height + iconSize.height / 12));
+		let versionSize = versionString.boundingRect(
+			with: NSSize(
+				width: iconSize.width * 0.9,
+				height: iconSize.height * (0.8 - 1.0 / 12)
+			),
+			options: .usesLineFragmentOrigin
+		);
+		
+		var backgroundHeight = (iconSize.height / 3).rounded()
+		
+		if backgroundHeight < versionSize.height {
+			backgroundHeight = (versionSize.height + iconSize.height / 6).rounded()
+		}
+		
+		ctx.setFillColor(
+			ABOptions.Drawing.versionBackgroundColor.value.cgColor
+		);
+		
+		ctx.fill(
+			CGRect (
+				x: 0.0,
+				y: 0.0,
+				width: iconSize.width,
+				height: backgroundHeight
+			)
+		);
 		
 		NSGraphicsContext.current = NSGraphicsContext (cgContext: ctx, flipped: false);
-		versionString.draw (with: NSRect (x: 0.05 * iconSize.width, y: round (iconSize.height / 10 + iconSize.height / 24), width: 0.9 * iconSize.width, height: ceil (versionSize.height)), options: .usesLineFragmentOrigin);
+		
+		versionString.draw(
+			with: NSRect(
+				x: 0.05 * iconSize.width,
+				y: (backgroundHeight - versionSize.height) / 2,
+				width: 0.9 * iconSize.width,
+				height: ceil(versionSize.height)
+			),
+			options: .usesLineFragmentOrigin
+		);
 		
 		let resultImage = NSBitmapImageRep (cgImage: ctx.makeImage ()!);
 		try resultImage.representation (using: .png, properties: [:])!.write (to: self.fileURL);
